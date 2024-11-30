@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="keren.css">
+</head>
+<body>
+  <marquee> SELAMAT DATANG</marquee>
+  <marquee>DI TOKO YUDHA</marquee>
+  <header>
+        <p>Hubungi kami:+6285719120932</p>
+  </header>
+    <main>
+        <div class="daftar-produk">
+            <div class="produk">
+                <img src="produk1.jpg" alt="Produk 1">
+                <h3>Produk 1</h3>
+                <p>Rp 100.000</p>
+                <button onclick="tambahKeKeranjang('Produk 1', 'produk1.jpg', 100000)">Tambah ke Keranjang</button>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+            <div class="produk">
+                <img src="produk2.jpg" alt="Produk 2">
+                <h3>Produk 2</h3>
+                <p>Rp 150.000</p>
+                <button onclick="tambahKeKeranjang('Produk 2', 'produk2.jpg', 150000)">Tambah ke Keranjang</button>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+            <div class="produk">
+                <img src="produk3.jpg" alt="Produk 3">
+                <h3>gatau</h3>
+                <p>Rp 0</p>
+                <button onclick="tambahKeKeranjang('gatau', 'produk3.jpg', 0)">Tambah ke Keranjang</button>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+            <div class="produk">
+                <img src="produk4.jpg" alt=" produk 4">
+                <h3>gatau</h3>
+                <p>Rp 0</p>
+                <button onclick="tambahKeKeranjang('gatau', 'produk4.jpg', 0)">Tambah ke Keranjang</button>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+            <div class="produk">
+                <img src="produk5.jpg" alt="Produk 5">
+                <h3>gatau</h3>
+                <p>Rp 0</p>
+                <button onclick="tambahKeKeranjang('gatau', 'produk5.jpg', 0)">Tambah ke Keranjang</button>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+
+        <section class="keranjang">
+            <h2>Keranjang Belanja</h2>
+            <ul id="list-keranjang">
+                <li>Keranjang kosong.</li>
+            </ul>
+            <p><strong>Total: Rp <span id="total-harga">0</span></strong></p>
+            <button id="btn-checkout" onclick="prosesCheckout()">Proses Checkout</button>
+        </section>
+    </main>
+    <script src="kasusmen.js"></script>
+</body>
+</html>
