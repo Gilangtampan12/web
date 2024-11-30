@@ -1,0 +1,61 @@
+// Data keranjang belanja
+let keranjang = [];
+let totalHarga = 0;
+
+function tambahKeKeranjang(namaProduk, gambarProduk, hargaProduk) {
+  keranjang.push({ nama: namaProduk, gambar: gambarProduk, harga: hargaProduk });
+  totalHarga += hargaProduk;
+  updateTampilanKeranjang();
+}
+
+function hapusDariKeranjang(index) {
+  totalHarga -= keranjang[index].harga;
+  keranjang.splice(index, 1);
+  updateTampilanKeranjang();
+}
+
+function updateTampilanKeranjang() {
+  const listKeranjang = document.getElementById('list-keranjang');
+  const totalHargaElement = document.getElementById('total-harga');
+  const btnCheckout = document.getElementById('btn-checkout');
+
+  listKeranjang.innerHTML = '';
+
+  keranjang.forEach((item, index) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+            <img src="${item.gambar}" alt="${item.nama}">
+            <span>${item.nama} - Rp ${item.harga.toLocaleString()}</span>
+            <button onclick="hapusDariKeranjang(${index})">Hapus</button>
+        `;
+    listKeranjang.appendChild(li);
+  });
+
+  totalHargaElement.textContent = totalHarga.toLocaleString();
+
+  if (keranjang.length === 0) {
+    listKeranjang.innerHTML = '<li>Keranjang kosong.</li>';
+    btnCheckout.style.display = 'none';
+  } else {
+    btnCheckout.style.display = 'block';
+  }
+}
+
+function checkout() {
+  if (keranjang.length === 0) {
+    alert("Keranjang kosong. Silakan tambahkan produk terlebih dahulu.");
+  } else {
+    alert("Checkout dimulai untuk produk ini.");
+  }
+}
+
+function prosesCheckout() {
+  if (keranjang.length > 0) {
+    alert("Proses checkout dimulai. Hubungi owner sekarang.");
+    keranjang = [];
+    totalHarga = 0;
+    updateTampilanKeranjang();
+  } else {
+    alert("Keranjang kosong, tidak ada yang bisa di-checkout.");
+  }
+}
